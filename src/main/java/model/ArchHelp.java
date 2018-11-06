@@ -19,7 +19,7 @@ public class ArchHelp {
     }
     
     public void add(Comando com){
-        com.setId(comandos.size() + 1);
+        com.setId(comandos.size());
         comandos.add(com);
     }
 }
