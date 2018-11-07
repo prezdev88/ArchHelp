@@ -291,7 +291,7 @@
     "grupo" : ""
   }, {
     "id" : 58,
-    "comando" : "pacman -S xorg-server xorg-xinit xorg-apps mesa mesa-demos xf86-video-vesa  xorg-twm xorg-xclock xterm",
+    "comando" : "pacman -S xorg-server xorg-xinit xorg-apps mesa mesa-demos xf86-video-vesa xorg-twm xorg-xclock xterm",
     "descripcion" : "# Instalación de xorg, driver genérico\n\n# xf86-video-vesa       --> Genérico\n# xf86-video-ati          --> Ati\n# xf86-video-intel       --> Intel\n# xf86-video-nouveau --> NVIDIA\n pacman -S xorg-server xorg-xinit xorg-apps mesa mesa-demos xf86-video-vesa  xorg-twm xorg-xclock xterm",
     "grupo" : ""
   }, {

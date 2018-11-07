@@ -13,6 +13,17 @@
     
     <!-- Añadí esto -->
     <build>
+        <!-- Añadí esto para colocar los recursos en esa carpeta --> 
+        <resources>
+            <resource>
+                <directory>${basedir}/src/main/resources</directory>
+                <includes>
+                    <include>**/*</include>
+                </includes>
+            </resource>
+        </resources>
+        <!-- Añadí esto para colocar los recursos en esa carpeta --> 
+        
         <plugins>
             <!-- Define clase principal y además crear un jar aparte con las dependencias -->
             <plugin>
