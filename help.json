@@ -369,5 +369,10 @@
     "comando" : "pacman -S jdk8-openjdk",
     "descripcion" : "",
     "grupo" : "jdk"
+  }, {
+    "id" : 74,
+    "comando" : "archlinux-java [status/set]",
+    "descripcion" : "",
+    "grupo" : "jdk"
   } ]
 }

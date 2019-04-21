@@ -9,8 +9,6 @@ import java.util.logging.Logger;
 import javax.swing.AbstractAction;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import model.ArchHelp;
 import model.Comando;
 
@@ -21,7 +19,7 @@ public class App extends javax.swing.JFrame {
 
     public App() {
         initComponents();
-
+        
         help = new ArchHelp();
 
         if (new File("help.json").exists()) {
@@ -373,4 +371,5 @@ public class App extends javax.swing.JFrame {
             }
         });
     }
+    
 }

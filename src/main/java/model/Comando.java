@@ -54,6 +54,7 @@ public class Comando {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
     
     
 }
