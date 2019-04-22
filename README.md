@@ -55,13 +55,13 @@ wget www.google.cl
 ```
 
 ## Particiones
-```bash
-# La idea es crear esto
+La idea es crear esto:
 
-# sda1 -- EFI	 -- EF00 	-- 250M	
-# sda2 -- SWAP	 -- 8200 	-- 4G
-# sda3 -- SYSTEM -- DEFAULT -- Lo que sobra	
-```
+|Device|Descripción|Código formato|Tamaño|
+|-|-|-|-|
+|sda1|EFI|EF00|250M|
+|sda2|SWAP|8200|4G|
+|sda3|SYSTEM|DEFAULT|Lo que sobra|
 
 ```bash
 cgdisk /dev/sda
@@ -198,5 +198,157 @@ passwd
 # Instalando bash-completion
 pacman -S bash-completion
 ```
+
+## Configuración EFI
+
+```bash
+# Instalando cgdisk
+pacman -S cgdisk
+```
+
+```bash
+# Formatear de nuevo el boot como EF00
+cgdisk /dev/sda
+```
+
+```bash
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+```
+
+```bash
+bootctl install
+```
+
+```bash
+# Ver el UUID de la partición SYSTEM y se debe copiar
+blkid -s PARTUUID -o value /dev/sda3
+```
+
+```bash
+nano /boot/loader/entries/arch.conf
+
+# Dentro del archivo
+title Arch Linux
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=PARTUUID=${PARTUUID} rw
+```
+
+```bash
+# Salimos y reiniciamos sin el pendrive
+exit
+umount -R /mnt
+reboot
+```
+
+## Creación de usuario
+
+```bash
+# Ingresar con las credenciales root al sistema
+# Creación de usuario
+useradd -m -g users -s /bin/bash ${nombreDeUsuario}
+```
+ 
+```bash
+# Estableciendo la password del usuario
+passwd ${nombreDeUsuario}
+```
+
+```bash
+# Configuración de pacman (MultiLib)
+# Descomentar la linea [multilib] e include
+nano /etc/pacman.conf
+
+# Actualizamos de nuevo
+pacman -Syu
+```
+
+```bash
+# Instalar sudo
+pacman -S sudo
+```
+
+```bash
+# Añadir a ${nombreDeUsuario} a los usuarios sudo
+EDITOR=nano visudo
+ 
+# Añadir abajo de root ALL=(ALL) ALL
+${nombreDeUsuario} ALL=(ALL) ALL
+```
+
+```bash
+# Ahora podemos desloguearnos y entrar con la nueva cuenta
+```
+
+## Instalación de xorg
+
+|Driver|Comando|
+|-|-|
+|Genérico|xf86-video-vesa|   
+|Ati|xf86-video-ati|   
+|Intel|xf86-video-intel|   
+|NVIDIA|xf86-video-nouveau|  
+
+```bash
+pacman -S 
+xorg-server 
+xorg-xinit
+xorg-apps 
+mesa 
+mesa-demos 
+xf86-video-vesa 
+xorg-twm 
+xorg-xclock 
+xterm
+```
+
+```bash
+startx
+```
+
+```bash
+# Para salir de xorg
+pkill x
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
