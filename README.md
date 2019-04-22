@@ -311,8 +311,15 @@ startx
 pkill x
 ```
 
+## Instalación de aplicaciones
 
-
+```bash
+# yay
+pacman -S git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+```
 
 
 
