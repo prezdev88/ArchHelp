@@ -241,6 +241,29 @@ umount -R /mnt
 reboot
 ```
 
+## GRUB (Sólo si no es EFI)
+```bash
+# Instalando
+pacman -S grub
+```
+
+```bash
+# Configurando
+grub-install --target=i386-pc --force /dev/sda
+```
+
+```bash
+# Creando el archivo de configuración
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+```bash
+# Salimos y reiniciamos sin el pendrive
+exit
+umount -R /mnt
+reboot
+```
+
 ## Creación de usuario
 
 ```bash
