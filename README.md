@@ -364,7 +364,7 @@ ${nombreDeUsuario} ALL=(ALL) ALL
 ```
 
 ```bash
-# Ahora podemos desloguearnos y entrar con la nueva cuenta
+# Ahora podemos cerrar sesión y entrar con la nueva cuenta
 ```
 
 ## Instalación de xorg
@@ -377,24 +377,27 @@ ${nombreDeUsuario} ALL=(ALL) ALL
 |NVIDIA|xf86-video-nouveau|  
 
 ```bash
+# Instalación de paquetes necesarios (Drivers genéricos)
 pacman -S 
-xorg-server 
-xorg-xinit
-xorg-apps 
-mesa 
-mesa-demos 
-xf86-video-vesa 
-xorg-twm 
-xorg-xclock 
-xterm
+    xorg-server 
+    xorg-xinit
+    xorg-apps 
+    mesa 
+    mesa-demos 
+    xf86-video-vesa 
+    xorg-twm 
+    xorg-xclock 
+    xterm
 ```
 
 ```bash
+# Iniciando servidor X
 startx
 ```
+Si en este momento de abre un terminal gráfico (xterm) y se ve el cursor del mouse, esta todo OK.
 
 ```bash
-# Para salir de xorg
+# Para salir del servidor X
 pkill x
 ```
 
@@ -406,11 +409,15 @@ setxkbmap -layout es
 
 # Instalación de software opcional
 
+## GIT
+
+```bash
+pacman -S git
+```
+
 ## yay
 
 ```bash
-# yay
-pacman -S git
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
