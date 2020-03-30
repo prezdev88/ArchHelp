@@ -1,5 +1,11 @@
 # Instalación Archlinux
 
+## Guía oficial de instalación en ingles
+https://wiki.archlinux.org/index.php/installation_guide
+
+## Guía oficial de instalación en español
+https://wiki.archlinux.org/index.php/Installation_guide_(Espa%C3%B1ol)
+
 ## Configuración del lenguaje
 ```bash
 # Se carga el teclado español
