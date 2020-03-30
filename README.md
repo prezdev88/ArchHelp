@@ -21,7 +21,64 @@ locale-gen
 export LANG=es_ES.UTF-8
 ```
 
-## Configuración de red estática
+## Configuración de WiFi
+
+```bash
+# Ver interfaces de red disponibles
+ip link
+```
+
+```bash
+# En mi caso la tarjeta de WiFi es wlo1
+# Habilitando wlo1
+ip link set wlo1 up
+```
+
+```bash
+# Creando archivo de configuración de WPA Supplicant
+nano /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+```bash
+ctrl_interface=/run/wpa_supplicant 
+update_config=1
+```
+
+```bash
+# Ejecutando WPA Supplicant
+wpa_supplicant -B -i wlo1 -c /etc/wpa_supplicant/wpa_supplicant.conf
+```
+
+```bash
+# Entrando a la consola de WPA
+wpa_cli
+```
+
+```bash
+# Creando red nueva
+> add_network 0
+
+# Poniendo los datos de conexión
+> set_network 0 ssid "MYSSID" 
+> set_network 0 psk "passphrase"
+
+# Habilitando red nueva
+> enable_network 0
+
+# Guardando la configuración
+> save_config
+> quit
+```
+
+```bash
+# Petición de IP
+dhcpcd wlo1
+
+# Probando conexión
+ping 8.8.8.8
+```
+
+## Configuración de red estática (Opcional)
 ```bash
 # Para ver el nombre de la interfaz de red
 ip link
@@ -51,7 +108,7 @@ export http_proxy=192.168.241.14:8080
 
 ```bash
 # comprobar 
-wget www.google.cl 
+ping 8.8.8.8
 ```
 
 ## Particiones
@@ -114,7 +171,7 @@ pacman-key --refresh-keys
 
 ```bash
 # Instalación
-pacstrap -i /mnt base base-devel
+pacstrap -i /mnt base base-devel linux linux-firmware
 ```
 
 ```bash
@@ -134,6 +191,15 @@ cat /mnt/etc/fstab
 
 ```bash
 arch-chroot /mnt /bin/bash
+```
+
+## Instalación de apps necesarias
+
+```bash
+pacman -S 
+nano
+dhcpcd
+bash-completion
 ```
 
 ## Configuración del lenguaje
@@ -178,7 +244,7 @@ hwclock --systohc --utc
 # Para ver el nombre de la interfaz de red
 ip link
 
-# Habilitar dhcp service para la interfaz
+# Habilitar dhcp service para la interfaz (Sólo si es Ethernet)
 systemctl enable dhcpcd@${interface}
 ```
 
@@ -194,16 +260,11 @@ echo ${nombreEquipo} > /etc/hostname
 passwd
 ```
 
-```bash
-# Instalando bash-completion
-pacman -S bash-completion
-```
-
-## Configuración EFI
+## Configuración EFI (Sólo si el PC soporta EFI)
 
 ```bash
 # Instalando cgdisk
-pacman -S cgdisk
+pacman -S gptfdisk
 ```
 
 ```bash
@@ -263,6 +324,9 @@ exit
 umount -R /mnt
 reboot
 ```
+
+## Configuración de WiFi
+Acá se requiere nuevamente la configuración de WiFi o Ethernet.
 
 ## Creación de usuario
 
@@ -334,7 +398,15 @@ startx
 pkill x
 ```
 
-## Instalación de aplicaciones
+## Teclado en español al iniciar servidor X
+```bash
+nano .xinitrc
+setxkbmap -layout es
+```
+
+# Instalación de software opcional
+
+## yay
 
 ```bash
 # yay
@@ -344,41 +416,32 @@ cd yay
 makepkg -si
 ```
 
+## Fuentes de Google
 
+```bash
+yay -S ttf-google-fonts-git
+```
 
+## Qtile
 
+```bash
+pacman -S qtile
+```
 
+```bash
+# Creando la carpeta para la configuración de qtile
+$ mkdir -p ~/.config/qtile/ 
 
+# Copiando la configuración de qtile por defecto
+$ cp /usr/share/doc/qtile_dir/default_config.py ~/.config/qtile/config.py
 
+# Ejecución de qtile
+# Añadir esta linea a .xinitrc
+exec qtile
 
+# Cambiar colores de terminal xterm
+nano .Xdefaults 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+XTerm*Background: black 
+XTerm*Foreground: white
+```
