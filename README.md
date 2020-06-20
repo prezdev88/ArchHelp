@@ -206,6 +206,7 @@ pacman -S
 nano
 dhcpcd
 bash-completion
+wpa_supplicant
 ```
 
 ## Configuración del lenguaje
