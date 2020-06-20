@@ -459,3 +459,18 @@ nano .Xdefaults
 XTerm*Background: black 
 XTerm*Foreground: white
 ```
+
+## KDE
+```bash
+pacman -S plasma kde-applications-meta
+```
+
+## Network Manager
+```bash
+systemctl enable NetworkManager.service
+```
+
+```bash
+nano .xinitrc
+exec startplasma-x11
+```
