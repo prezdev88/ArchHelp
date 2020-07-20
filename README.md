@@ -465,6 +465,24 @@ XTerm*Foreground: white
 pacman -S plasma kde-applications-meta
 ```
 
+## Display Manager
+```bash
+systemctl enable sddm.service
+```
+
+## Autologin
+```bash
+nano /etc/sddm.conf.d/autologin.conf
+```
+```bash
+[Theme]
+Current=breeze
+
+[Autologin]
+User=prez
+Session=plasma.desktop
+```
+
 ## Network Manager
 ```bash
 systemctl enable NetworkManager.service
@@ -473,4 +491,9 @@ systemctl enable NetworkManager.service
 ```bash
 nano .xinitrc
 exec startplasma-x11
+```
+
+# Instalación de aplicaciones varias
+```shell
+yay -S neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git mvn
 ```
