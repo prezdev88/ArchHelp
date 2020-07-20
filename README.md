@@ -495,5 +495,5 @@ exec startplasma-x11
 
 # Instalación de aplicaciones varias
 ```shell
-yay -S neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git mvn pulseaudio-equalizer
+yay -S neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git mvn pulseaudio-equalizer-ladspa swh-plugins
 ```
