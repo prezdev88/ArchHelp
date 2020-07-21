@@ -435,6 +435,7 @@ makepkg -si
 ```bash
 yay -S ttf-google-fonts-git
 ```
+# Desktop environments
 
 ## Qtile
 
@@ -464,13 +465,18 @@ XTerm*Foreground: white
 ```bash
 pacman -S plasma kde-applications-meta
 ```
+### .xinitrc
+```bash
+nano .xinitrc
+exec startplasma-x11
+```
 
-## Display Manager
+### Display Manager
 ```bash
 systemctl enable sddm.service
 ```
 
-## Autologin
+### Autologin
 ```bash
 nano /etc/sddm.conf.d/autologin.conf
 ```
@@ -483,17 +489,63 @@ User=prez
 Session=plasma.desktop
 ```
 
+## Mate
+```bash
+pacman -S mate mate-extra
+```
+### .xinitrc
+```bash
+nano .xinitrc
+exec mate-session
+```
+### Wifi Manager
+```bash
+pacman -S networkmanager network-manager-applet
+systemctl enable NetworkManager.service
+```
+
+## Gnome
+```bash
+pacman -S gnome gnome-extra gnome-power-manager gnome-tweak-tool gnome-packagekit gnome-settings-daemon-updates polkit-gnome gnome-keyring
+```
+### Display Manager
+```shell
+systemctl enable gdm.service
+```
+
 ## Network Manager
 ```bash
 systemctl enable NetworkManager.service
 ```
 
+### .xinitrc
 ```bash
 nano .xinitrc
-exec startplasma-x11
+exec gnome-session
 ```
+
 
 # Instalación de aplicaciones varias
 ```shell
-yay -S neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git mvn pulseaudio-equalizer-ladspa swh-plugins
+yay -S neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git mvn pulseaudio-equalizer-ladspa swh-plugins gstreamer pulseaudio pulseaudio-alsa mariadb bluez bluez-utils gst-plugins-ugly ntfs-3g exfat-utils fuse-exfat
+```
+
+## Maria db
+```bash 
+systemctl enable mariadb.service
+```
+si envia error ejecutar esto en modo root y despues de nuevo
+```bash
+mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+```
+
+### Maria db config
+```bash
+mysql_secure_installation
+```
+
+## Iniciar y habilitar servicio bluetooth
+```bash
+systemctl start bluetooth.service
+systemctl enable bluetooth.service
 ```
