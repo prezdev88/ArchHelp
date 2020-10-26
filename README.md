@@ -175,6 +175,14 @@ pacman-key --populate archlinux
 pacman-key --refresh-keys
 ```
 
+## Si no funciona lo de arriba...
+
+```bash
+nano /etc/pacman.d/gnupg/gpg.conf
+keyserver hkp://pool.sks-keyservers.net
+pacman-key --refresh-keys
+```
+
 ```bash
 # Instalación
 pacstrap -i /mnt base base-devel linux linux-firmware
@@ -420,6 +428,11 @@ setxkbmap -layout es
 
 ```bash
 pacman -S git
+```
+
+## CA certificates
+```bash
+pacman -S ca-certificates-utils
 ```
 
 ## yay
