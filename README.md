@@ -571,3 +571,10 @@ mysql_secure_installation
 systemctl start bluetooth.service
 systemctl enable bluetooth.service
 ```
+
+## gpg: recepción del servidor de claves fallida: Error general archlinux
+```bash
+# En /home/{user}
+nano .gnupg/gpg.conf
+keyserver pool.sks-keyservers.net
+```
