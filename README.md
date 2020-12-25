@@ -180,7 +180,13 @@ pacman-key --refresh-keys
 ```bash
 nano /etc/pacman.d/gnupg/gpg.conf
 keyserver hkp://pool.sks-keyservers.net
+
+pacman-key --populate archlinux
 pacman-key --refresh-keys
+```
+
+```bash
+pacman -S pacman
 ```
 
 ```bash
@@ -473,6 +479,18 @@ nano .Xdefaults
 XTerm*Background: black 
 XTerm*Foreground: white
 ```
+
+### Rofi
+```bash
+yay -S rofi
+
+# Agregar esto a config.py (si es que tienes qtile)
+# Esto permite que se abra rofi con ctrl + win + space
+Key([mod, "control"], "space", lazy.spawn("rofi -show run"), desc="Run rofi"),
+```
+
+#### Rofi dark mode
+https://github.com/bardisty/gruvbox-rofi
 
 ## KDE
 ```bash
