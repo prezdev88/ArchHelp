@@ -578,3 +578,8 @@ systemctl enable bluetooth.service
 nano .gnupg/gpg.conf
 keyserver pool.sks-keyservers.net
 ```
+
+## Wine audio error
+```bash
+yay -S lib32-mpg123 lib32-libpulse lib32-alsa-plugins
+```
