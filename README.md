@@ -567,7 +567,7 @@ exec gnome-session
 
 # Instalación de aplicaciones varias
 ```shell
-yay -S yakuake neofetch jdk8-openjdk htop google-chrome vscodium-bin boostnote postman-bin intellij-idea-community-edition intellij-idea-ultimate-edition dbeaver git maven pulseaudio-equalizer-ladspa swh-plugins gstreamer pulseaudio pulseaudio-alsa mariadb bluez bluez-utils gst-plugins-ugly ntfs-3g exfat-utils fuse-exfat wine pulseaudio-bluetooth obs-studio brave-bin acetoneiso2 gparted flameshot openboard 0ad chromium
+yay -S yakuake neofetch jdk8-openjdk htop google-chrome vscodium-bin postman-bin intellij-idea-community-edition intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre dbeaver git maven pulseaudio-equalizer-ladspa swh-plugins gstreamer pulseaudio pulseaudio-alsa bluez bluez-utils gst-plugins-ugly ntfs-3g exfat-utils fuse-exfat wine pulseaudio-bluetooth obs-studio brave-bin acetoneiso2 gparted flameshot openboard chromium notion-app gitahead-bin discord slack-desktop cool-retro-term forticlient-vpn 
 ```
 
 ## Maria db
