@@ -117,6 +117,11 @@ export http_proxy=192.168.241.14:8080
 ping 8.8.8.8
 ```
 
+## Actualizar el reloj del sistema
+```bash
+timedatectl status
+```
+
 ## Particiones
 La idea es crear esto:
 
@@ -186,6 +191,7 @@ pacman-key --refresh-keys
 ```
 
 ```bash
+pacman -Sy
 pacman -S pacman
 ```
 
@@ -399,7 +405,7 @@ ${nombreDeUsuario} ALL=(ALL) ALL
 
 ```bash
 # Instalación de paquetes necesarios (Drivers genéricos)
-pacman -S 
+sudo pacman -S 
     xorg-server 
     xorg-xinit
     xorg-apps 
@@ -433,17 +439,18 @@ setxkbmap -layout es
 ## GIT
 
 ```bash
-pacman -S git
+sudo pacman -S git
 ```
 
 ## CA certificates
 ```bash
-pacman -S ca-certificates-utils
+sudo pacman -S ca-certificates-utils
 ```
 
 ## yay
 
 ```bash
+# Como usuario normal
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
@@ -459,7 +466,7 @@ yay -S ttf-google-fonts-git
 ## Qtile
 
 ```bash
-pacman -S qtile
+sudo pacman -S qtile
 ```
 
 ```bash
@@ -494,7 +501,7 @@ https://github.com/bardisty/gruvbox-rofi
 
 ## KDE
 ```bash
-pacman -S plasma kde-applications-meta
+sudo pacman -S plasma kde-applications-meta
 ```
 ### .xinitrc
 ```bash
@@ -531,7 +538,7 @@ launchpad Plasma
 
 ## Mate
 ```bash
-pacman -S mate mate-extra
+sudo pacman -S mate mate-extra
 ```
 ### .xinitrc
 ```bash
@@ -540,13 +547,13 @@ exec mate-session
 ```
 ### Wifi Manager
 ```bash
-pacman -S networkmanager network-manager-applet
+sudo pacman -S networkmanager network-manager-applet
 systemctl enable NetworkManager.service
 ```
 
 ## Gnome
 ```bash
-pacman -S gnome gnome-extra gnome-power-manager gnome-tweak-tool gnome-packagekit gnome-settings-daemon-updates polkit-gnome gnome-keyring
+sudo pacman -S gnome gnome-extra gnome-power-manager gnome-tweak-tool gnome-packagekit gnome-settings-daemon-updates polkit-gnome gnome-keyring
 ```
 ### Display Manager
 ```shell
