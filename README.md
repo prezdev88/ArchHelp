@@ -514,6 +514,11 @@ exec startplasma-x11
 systemctl enable sddm.service
 ```
 
+### Error en audio
+```bash
+sudo pacman -S sof-firmware
+```
+
 ### Autologin
 ```bash
 nano /etc/sddm.conf.d/autologin.conf
