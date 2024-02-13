@@ -287,6 +287,33 @@ echo ${nombreEquipo} > /etc/hostname
 passwd
 ```
 
+## Grub con Windows (Incluso con EFI)
+
+```bash
+# Instalación de apps necesarias
+pacman -S grub efibootmgr os-prober
+```
+
+```bash
+# Instalación de grub en /boot
+sudo grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=grub
+```
+
+```bash
+# descomentar GRUB_DISABLE_OS_PROBER=false
+sudo nano /etc/default/grub
+```
+
+```bash
+# Acá debería salir algo de windows
+sudo os-prober
+```
+
+```bash
+# Crear la configuración para grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
+
 ## Configuración EFI (Sólo si el PC soporta EFI)
 
 ```bash
