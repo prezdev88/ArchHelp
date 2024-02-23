@@ -558,6 +558,12 @@ sudo pacman -S thunar
 sudo pacman -S tint2
 ```
 
+### lxqt config (algo asi como panel de control)
+```bash
+# Sirve para configurar el touchpad
+sudo pacman -S lxqt-config
+```
+
 ### red
 ```bash
 sudo pacman -S network-manager-applet
@@ -777,4 +783,16 @@ pacman-key --refresh-keys
 # Wine audio error
 ```bash
 yay -S lib32-mpg123 lib32-libpulse lib32-alsa-plugins
+```
+
+# Brillo pantalla
+```bash
+# listado de pantallas
+xrandr --query
+
+# max brillo
+cat /sys/class/backlight/*/max_brightness
+
+# set brillo
+xrandr --output eDP1 --set BACKLIGHT 2000
 ```
