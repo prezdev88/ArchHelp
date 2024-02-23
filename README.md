@@ -616,12 +616,24 @@ sudo pacman -S pasystray
 sudo pacman -S colorpicker
 ```
 
+### Clipboard
+```bash
+sudo pacman -S clipit
+```
+
+### Flameshot
+```bash
+sudo pacman -S flameshot
+```
+
 ```bash
 # .xinitrc
 tint2 &
 nm-applet &
 pasystray &
 conky &
+clipit &
+flameshot &
 setxkbmap -layout es
 exec openbox-session
 ```
