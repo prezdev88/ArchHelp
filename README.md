@@ -605,6 +605,11 @@ pavucontrol
 sudo pacman -S pasystray
 ```
 
+### Colorpicker
+```bash
+sudo pacman -S colorpicker
+```
+
 ```bash
 # .xinitrc
 tint2 &
