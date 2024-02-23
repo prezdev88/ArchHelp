@@ -224,7 +224,8 @@ arch-chroot /mnt /bin/bash
 ```bash
 pacman -S 
 nano
-dhcpcd
+dhcpcd # deprecated (networkmanager)
+networkmanager
 bash-completion
 wpa_supplicant
 ```
@@ -267,12 +268,18 @@ hwclock --systohc --utc
 
 ## Configuración de red
 
+### DEPRECATED (ver Network manager)
 ```bash
 # Para ver el nombre de la interfaz de red
 ip link
 
 # Habilitar dhcp service para la interfaz (Sólo si es Ethernet)
 systemctl enable dhcpcd@${interface}
+```
+
+### Network manager
+```bash
+sudo systemctl enable NetworkManager
 ```
 
 ## Configuración variada
@@ -490,6 +497,124 @@ yay -S ttf-google-fonts-git
 ```
 # Desktop environments
 
+## Openbox
+
+```bash
+sudo pacman -S openbox
+```
+
+### Default configuration
+```bash
+mkdir -p ~/.config/openbox
+cp /etc/xdg/openbox/{rc.xml,menu.xml,autostart,environment} ~/.config/openbox
+```
+
+### Fondo de pantalla
+```bash
+sudo pacman -S feh
+
+nano .config/openbox/autostart
+
+feh --bg-scale ${image-path} &
+```
+
+### obconf
+```bash
+# Configuración de openbox
+sudo pacman -S obconf
+```
+
+### Menumaker
+```bash
+# Generar menu.xml automáticamente según programas instalados
+sudo pacman -S menumaker
+mmaker -v -f OpenBox3
+openbox --reconfigure
+```
+
+### dmenu (krunner like)
+```bash
+sudo pacman -S dmenu
+
+nano .config/openbox/rc.xml
+
+<keybind key="A-space">
+  <action name="Execute">
+    <command>dmenu_run</command>
+  </action>
+</keybind>
+
+openbox --reconfigure
+```
+
+### thunar
+```bash
+sudo pacman -S thunar
+```
+
+### tint2
+```bash
+# Panel inferior básico
+sudo pacman -S tint2
+```
+
+### red
+```bash
+sudo pacman -S network-manager-applet
+
+# añadir esto a .xinitrc
+nm-applet &
+```
+
+### Look and feel (themes)
+```bash
+# Look and feel de openbox
+sudo pacman -S lxappearance
+sudo pacman -S arc-gtk-theme
+```
+
+```bash
+# Preferencias de energía
+sudo pacman -S xfce4-power-manager
+```
+
+```bash
+# Ícono de volumen en bandeja del sistema
+sudo pacman -S volumeicon
+```
+
+```bash
+# Extractor de zip gráfico
+sudo pacman -S file-roller
+```
+
+```bash
+# Ver particiones ntfs
+sudo pacman -S ntfs-3g
+```
+
+### Audio (t14)
+```bash
+sudo pacman -S sof-firmware
+sudo pacman -S alsa-utils alsa-plugins pulseaudio pulseaudio-alsa pavucontrol
+pulseaudio --start
+reboot
+pavucontrol
+
+# icono de volumen
+sudo pacman -S pasystray
+```
+
+```bash
+# .xinitrc
+tint2 &
+nm-applet &
+pasystray &
+conky &
+setxkbmap -layout es
+exec openbox-session
+```
+
 ## Qtile
 
 ```bash
@@ -609,34 +734,33 @@ exec gnome-session
 yay -S yakuake neofetch jdk8-openjdk htop google-chrome vscodium-bin postman-bin intellij-idea-community-edition intellij-idea-ultimate-edition intellij-idea-ultimate-edition-jre dbeaver git maven pulseaudio-equalizer-ladspa swh-plugins gstreamer pulseaudio pulseaudio-alsa bluez bluez-utils gst-plugins-ugly ntfs-3g exfat-utils fuse-exfat wine pulseaudio-bluetooth obs-studio brave-bin acetoneiso2 gparted flameshot openboard chromium notion-app gitahead-bin discord slack-desktop cool-retro-term forticlient-vpn 
 ```
 
-## Maria db
-```bash 
-systemctl enable mariadb.service
-```
-si envia error ejecutar esto en modo root y despues de nuevo
+# fish
+## Install
 ```bash
-mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+yay -S fish
+curl -L https://get.oh-my.fish | fish
 ```
 
-### Maria db config
+## themes
 ```bash
-mysql_secure_installation
+omf theme
+omf install agnoster
 ```
 
-## Iniciar y habilitar servicio bluetooth
+# Iniciar y habilitar servicio bluetooth
 ```bash
 systemctl start bluetooth.service
 systemctl enable bluetooth.service
 ```
 
-## gpg: recepción del servidor de claves fallida: Error general
+# gpg: recepción del servidor de claves fallida: Error general
 ```bash
 # En /home/{user}
 nano .gnupg/gpg.conf
 keyserver pool.sks-keyservers.net
 ```
 
-## gpg: recepción del servidor de claves fallida: Sin nombre
+# gpg: recepción del servidor de claves fallida: Sin nombre
 ```bash
 nano /etc/pacman.d/gnupg/gpg.conf
 keyserver hkp://pgp.mit.edu:11371
@@ -645,7 +769,7 @@ pacman-key --populate archlinux
 pacman-key --refresh-keys
 ```
 
-## Wine audio error
+# Wine audio error
 ```bash
 yay -S lib32-mpg123 lib32-libpulse lib32-alsa-plugins
 ```
