@@ -808,3 +808,14 @@ cat /sys/class/backlight/*/max_brightness
 # set brillo
 xrandr --output eDP1 --set BACKLIGHT 2000
 ```
+
+# t14
+## ¿Cómo montar una microsd?
+```bash
+sudo mount /dev/mmcblk0p1 /mnt
+```
+
+## Codecs
+```bash
+sudo pacman -S ffmpeg gstreamer gst-plugins-good gst-plugins-bad gst-plugins-ugly
+```
