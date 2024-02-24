@@ -819,3 +819,47 @@ sudo mount /dev/mmcblk0p1 /mnt
 ```bash
 sudo pacman -S ffmpeg gstreamer gst-plugins-good gst-plugins-bad gst-plugins-ugly
 ```
+
+## Youtube Music in microsoft edge
+```bash
+sudo echo "microsoft-edge-stable --app=https://music.youtube.com" >> /bin/ytmusic
+sudo chmod +x /bin/ytmusic
+```
+
+## Montar manual con udisks2
+```bash
+sudo pacman -S udisks2
+
+# Listado de dispositivos
+lsblk
+
+udisksctl mount -b /dev/sdc1
+udisksctl unmount -b /dev/sdc1
+```
+
+## montar con gui (udiskie). udisks2 requerido
+```bash
+sudo pacman -S udiskie
+
+# .xinitrc
+udiskie --tray &
+```
+
+## Gestor de notificaciones Dunst
+```bash 
+sudo pacman -S dunst
+
+# Archivo de configuración
+mkdir ~/.config/dunst
+nano ~/.config/dunst/dunstrc
+
+# Añadir esto
+[global]
+font = Sans 20
+
+# .xinitrc
+dunst &
+
+# Prueba con una notificación
+notify-send "Prueba de Notificación" "Esta es una prueba de notificación.
+```
