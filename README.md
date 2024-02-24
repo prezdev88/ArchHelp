@@ -820,10 +820,14 @@ sudo mount /dev/mmcblk0p1 /mnt
 sudo pacman -S ffmpeg gstreamer gst-plugins-good gst-plugins-bad gst-plugins-ugly
 ```
 
+## Youtube in chromium
+```bash
+sudo sh -c 'echo "chromium --app=https://youtube.com" > /bin/youtube && chmod +x /bin/youtube'
+```
+
 ## Youtube Music in microsoft edge
 ```bash
-sudo echo "microsoft-edge-stable --app=https://music.youtube.com" >> /bin/ytmusic
-sudo chmod +x /bin/ytmusic
+sudo sh -c 'echo "microsoft-edge-stable --app=https://music.youtube.com" > /bin/ytmusic && chmod +x /bin/ytmusic'
 ```
 
 ## Montar manual con udisks2
@@ -850,16 +854,11 @@ udiskie --tray &
 sudo pacman -S dunst
 
 # Archivo de configuración
-mkdir ~/.config/dunst
-nano ~/.config/dunst/dunstrc
-
-# Añadir esto
-[global]
-font = Sans 20
+mkdir -p ~/.config/dunst && echo -e "[global]\nfont = Sans 15" > ~/.config/dunst/dunstrc 
 
 # .xinitrc
 dunst &
 
 # Prueba con una notificación
-notify-send "Prueba de Notificación" "Esta es una prueba de notificación.
+notify-send "Prueba de Notificación" "Esta es una prueba de notificación."
 ```
