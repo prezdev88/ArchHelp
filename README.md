@@ -931,3 +931,8 @@ blur-strength = 1;
 ```bash
 picom &
 ```
+
+## Temas de openbox
+```bash
+yay -S openbox-themes
+```
