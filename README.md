@@ -936,3 +936,8 @@ picom &
 ```bash
 yay -S openbox-themes
 ```
+
+## Instalación de íconos
+```bash
+yay -S emerald-icon-theme el-general-icon-theme-git humanity-icon-theme la-capitaine-icon-theme nitrux-icon-theme win11-icon-theme-git windows-xp-icon-theme windows10-icon-theme arc-icon-theme adwaita-icon-theme
+```
