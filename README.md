@@ -1,7 +1,7 @@
 # Instalación Archlinux
 
 ## Guía oficial de instalación en ingles
-https://wiki.archlinux.org/index.php/installation_guide
+https://wiki.archlinux.org/title/installation_guide
 
 ## Guía oficial de instalación en español
 https://wiki.archlinux.org/title/Installation_guide_(Español)
