@@ -4,7 +4,7 @@
 https://wiki.archlinux.org/index.php/installation_guide
 
 ## Guía oficial de instalación en español
-https://wiki.archlinux.org/index.php/Installation_guide_(Espa%C3%B1ol)
+https://wiki.archlinux.org/title/Installation_guide_(Español)
 
 ## Configuración del lenguaje
 ```bash
