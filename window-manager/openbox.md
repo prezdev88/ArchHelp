@@ -278,3 +278,21 @@ yay -S orage gsimplecal
 nano .config/tint2/tint2rc
 clock_lclick_command = gsimplecal
 ```
+
+## Brightness adjustment
+```bash
+# connected screens
+xrandr -q
+
+# Maximum brightness
+cat /sys/class/backlight/*/max_brightness
+
+# Set brightness
+xrandr --output eDP1 --set BACKLIGHT 2000
+```
+
+# t14
+## How to mount a microSD card?"
+```bash
+sudo mount /dev/mmcblk0p1 /mnt
+```

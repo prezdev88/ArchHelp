@@ -428,7 +428,7 @@ ${nombreDeUsuario} ALL=(ALL) ALL
 # Ahora podemos cerrar sesión y entrar con la nueva cuenta
 ```
 
-## Instalación de xorg
+## Instalación de driver
 
 |Driver|Comando|
 |-|-|
@@ -493,32 +493,3 @@ makepkg -si
 ```bash
 yay -S ttf-google-fonts-git
 ```
-
-# Iniciar y habilitar servicio bluetooth
-```bash
-systemctl start bluetooth.service
-systemctl enable bluetooth.service
-```
-
-# Brillo pantalla
-```bash
-# listado de pantallas
-xrandr --query
-
-# max brillo
-cat /sys/class/backlight/*/max_brightness
-
-# set brillo
-xrandr --output eDP1 --set BACKLIGHT 2000
-```
-
-# t14
-## ¿Cómo montar una microsd?
-```bash
-sudo mount /dev/mmcblk0p1 /mnt
-```
-
-
-
-
-

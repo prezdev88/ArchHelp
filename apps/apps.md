@@ -19,3 +19,9 @@ Key([mod, "control"], "space", lazy.spawn("rofi -show run"), desc="Run rofi"),
 
 ### Rofi dark mode
 https://github.com/bardisty/gruvbox-rofi
+
+## Iniciar y habilitar servicio bluetooth
+```bash
+systemctl start bluetooth.service
+systemctl enable bluetooth.service
+```
