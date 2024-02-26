@@ -29,7 +29,7 @@ sudo pacman -S obconf
 
 ## menumaker
 
- Genera menu.xml automáticamente según programas instalados
+To generate a menu.xml automatically based on installed programs,
 
 ```bash
 sudo pacman -S menumaker
@@ -62,13 +62,13 @@ sudo pacman -S thunar
 
 ## tint2
 
-Panel básico
+Basic panel
 
 ```bash
 sudo pacman -S tint2
 ```
 
-## lxqt-config (control panel))
+## lxqt-config (control panel)
 ```bash
 sudo pacman -S lxqt-config
 ```
@@ -88,28 +88,28 @@ nm-applet &
 sudo pacman -S lxappearance arc-gtk-theme
 ```
 
-## Preferencias de energía
+## Power preferences
 ```bash
 sudo pacman -S xfce4-power-manager
 ```
 
-## Ícono de volumen en panel (Sólo escoger uno)
+## Volume icon on panel (Choose only one)
 ```bash
 sudo pacman -S volumeicon
 sudo pacman -S pasystray
 ```
 
-## Extractor de zip gráfico
+## Graphical ZIP extractor
 ```bash
 sudo pacman -S file-roller
 ```
 
-## Ver particiones ntfs
+## View NTFS partitions
 ```bash
 sudo pacman -S ntfs-3g
 ```
 
-## Audio (sólo en notebook t14)
+## Audio (only on t14 notebook)
 ```bash
 sudo pacman -S sof-firmware
 sudo pacman -S alsa-utils alsa-plugins pulseaudio pulseaudio-alsa pavucontrol
@@ -162,7 +162,8 @@ setxkbmap -layout es
 exec openbox-session
 ```
 
-## Montar manual con udisks2
+## Mounting
+### Manual mounting with udisks2
 ```bash
 sudo pacman -S udisks2
 
@@ -173,7 +174,7 @@ udisksctl mount -b /dev/sdc1
 udisksctl unmount -b /dev/sdc1
 ```
 
-## montar con gui (udiskie). udisks2 requerido
+### Mount with GUI (udisks2 required)
 ```bash
 sudo pacman -S udiskie
 
@@ -181,17 +182,17 @@ sudo pacman -S udiskie
 udiskie --tray &
 ```
 
-## Gestor de notificaciones Dunst
+## Dunst notification manager
 ```bash 
 sudo pacman -S dunst
 
-# Archivo de configuración
+# Configuration file
 mkdir -p ~/.config/dunst && echo -e "[global]\nfont = Sans 15" > ~/.config/dunst/dunstrc 
 
 # .xinitrc
 dunst &
 
-# Prueba con una notificación
+# notification test
 notify-send "Prueba de Notificación" "Esta es una prueba de notificación."
 ```
 
@@ -261,17 +262,17 @@ blur-strength = 1;
 picom &
 ```
 
-## Temas de openbox
+## Themes
 ```bash
 yay -S openbox-themes
 ```
 
-## Instalación de íconos
+## Icons
 ```bash
 yay -S emerald-icon-theme el-general-icon-theme-git humanity-icon-theme la-capitaine-icon-theme nitrux-icon-theme win11-icon-theme-git windows-xp-icon-theme windows10-icon-theme arc-icon-theme adwaita-icon-theme
 ```
 
-## Calendario en tint2
+## Calendar on tint2
 ```bash
 yay -S orage gsimplecal
 nano .config/tint2/tint2rc
