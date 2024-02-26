@@ -629,6 +629,23 @@ sudo pacman -S clipit
 sudo pacman -S flameshot
 ```
 
+#### Keybinding flameshot in openbox
+```bash
+nano ~/.config/openbox/rc.xml
+```
+
+```xml
+<keybind key="Print">
+  <action name="Execute">
+    <command>flameshot gui</command>
+  </action>
+</keybind>
+```
+
+```bash
+openbox --reconfigure
+```
+
 ```bash
 # .xinitrc
 tint2 &
