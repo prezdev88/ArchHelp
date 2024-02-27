@@ -291,6 +291,60 @@ cat /sys/class/backlight/*/max_brightness
 xrandr --output eDP1 --set BACKLIGHT 2000
 ```
 
+## Window position Key binding (rc.xml)
+```bash
+nano .config/openbox/rc.xml
+```
+
+```xml
+<!-- Move the Current Window to the Left Half of the Screen -->
+<keybind key="W-Left">
+  <action name="MoveResizeTo">
+    <x>0</x>
+    <y>0</y>
+    <width>50%</width>
+    <height>100%</height>
+  </action>
+</keybind>
+
+<!-- Move the Current Window to the Right Half of the Screen -->
+<keybind key="W-Right">
+  <action name="MoveResizeTo">
+    <x>-1</x>
+    <y>0</y>
+    <width>50%</width>
+    <height>100%</height>
+  </action>
+</keybind>
+
+<!-- Move the Current Window to the Top of the Screen -->
+<keybind key="W-Up">
+  <action name="Unmaximize"/>
+  <action name="MoveResizeTo">
+    <x>0</x>
+    <y>0</y>
+    <width>100%</width>
+    <height>50%</height>
+  </action>
+</keybind>
+
+<!-- Move the Current Window to the Bottom of the Screen -->
+<keybind key="W-Down">
+  <action name="Unmaximize"/>
+  <action name="MoveResizeTo">
+    <x>-1</x>
+    <y>-1</y>
+    <width>100%</width>
+    <height>50%</height>
+  </action>
+</keybind>
+
+<!-- Maximize Current Window -->
+<keybind key="W-Return">
+  <action name="Maximize"/>
+</keybind>
+```
+
 # t14
 ## How to mount a microSD card?"
 ```bash
