@@ -298,7 +298,7 @@ nano .config/openbox/rc.xml
 
 ```xml
 <!-- Move the Current Window to the Left Half of the Screen -->
-<keybind key="W-Left">
+<keybind key="C-W-Left">
   <action name="MoveResizeTo">
     <x>0</x>
     <y>0</y>
@@ -308,7 +308,7 @@ nano .config/openbox/rc.xml
 </keybind>
 
 <!-- Move the Current Window to the Right Half of the Screen -->
-<keybind key="W-Right">
+<keybind key="C-W-Right">
   <action name="MoveResizeTo">
     <x>-1</x>
     <y>0</y>
@@ -318,7 +318,7 @@ nano .config/openbox/rc.xml
 </keybind>
 
 <!-- Move the Current Window to the Top of the Screen -->
-<keybind key="W-Up">
+<keybind key="C-W-Up">
   <action name="Unmaximize"/>
   <action name="MoveResizeTo">
     <x>0</x>
@@ -329,7 +329,7 @@ nano .config/openbox/rc.xml
 </keybind>
 
 <!-- Move the Current Window to the Bottom of the Screen -->
-<keybind key="W-Down">
+<keybind key="C-W-Down">
   <action name="Unmaximize"/>
   <action name="MoveResizeTo">
     <x>-1</x>
@@ -340,7 +340,7 @@ nano .config/openbox/rc.xml
 </keybind>
 
 <!-- Maximize Current Window -->
-<keybind key="W-Return">
+<keybind key="C-W-Return">
   <action name="Maximize"/>
 </keybind>
 ```
