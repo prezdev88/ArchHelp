@@ -9,7 +9,7 @@ sudo pacman -S qtile
 $ mkdir -p ~/.config/qtile/ 
 
 # Copiando la configuración de qtile por defecto
-$ cp /usr/share/doc/qtile_dir/default_config.py ~/.config/qtile/config.py
+$ cp /usr/share/doc/qtile/default_config.py ~/.config/qtile/config.py
 
 # Ejecución de qtile
 # Añadir esta linea a .xinitrc
