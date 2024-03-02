@@ -21,3 +21,8 @@ nano .Xdefaults
 XTerm*Background: black 
 XTerm*Foreground: white
 ```
+
+## config
+```bash
+Key([mod], "r", lazy.spawn("dmenu_run"))
+```
