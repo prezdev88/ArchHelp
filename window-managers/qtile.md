@@ -26,3 +26,15 @@ XTerm*Foreground: white
 ```bash
 Key([mod], "r", lazy.spawn("dmenu_run"))
 ```
+
+## Battery (donde están todos los demás widget)
+```python
+widget.Battery(
+    format='{char} {percent:2.0%} ({hour:d}:{min:02d})',
+    charge_char='⚡',
+    discharge_char='⚡',
+    full_char='⚡',
+    notify_below=20,  # Opcional: mostrar notificación cuando la batería esté por debajo del 20%
+    update_interval=60  # Opcional: actualizar cada 60 segundos
+)
+```
