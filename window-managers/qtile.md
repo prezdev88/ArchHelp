@@ -13,7 +13,7 @@ $ cp /usr/share/doc/qtile/default_config.py ~/.config/qtile/config.py
 
 # Ejecución de qtile
 # Añadir esta linea a .xinitrc
-exec qtile
+exec qtile start
 
 # Cambiar colores de terminal xterm
 nano .Xdefaults 
