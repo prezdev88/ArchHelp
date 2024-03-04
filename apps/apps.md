@@ -25,3 +25,18 @@ https://github.com/bardisty/gruvbox-rofi
 systemctl start bluetooth.service
 systemctl enable bluetooth.service
 ```
+
+## xscreensaver
+```bash
+yay -S xscreensaver
+```
+
+### in .xinitrc
+```bash
+xscreensaver &
+```
+
+### Execute
+```bash
+xscreensaver-command -lock
+```
