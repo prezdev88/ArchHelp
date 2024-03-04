@@ -36,7 +36,7 @@ yay -S xscreensaver
 xscreensaver &
 ```
 
-### Execute
+### Create lock in bin
 ```bash
-xscreensaver-command -lock
+sudo bash -c 'echo "xscreensaver-command -lock" > /bin/lock && chmod +x /bin/lock'
 ```
