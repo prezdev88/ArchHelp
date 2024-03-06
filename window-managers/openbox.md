@@ -387,6 +387,8 @@ fi
 
 pactl set-default-sink "$new_sink"
 
+notify-send "Audio" "$new_sink"
+
 echo "Audio cambiado a $new_sink"
 ```
 
