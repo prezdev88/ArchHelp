@@ -350,3 +350,60 @@ nano .config/openbox/rc.xml
 ```bash
 sudo mount /dev/mmcblk0p1 /mnt
 ```
+
+# Switch audio output devices (pipewire-pulse)
+Todo lo demás sólo funciona con pipewire-pulse, y no con pulseaudio
+
+## Verify pipewire-pulse
+```bash
+systemctl --user status pipewire-pulse
+```
+
+## List of audio output devices
+```bash
+pactl list sinks | grep "Name:"
+```
+
+## Set a audio output device
+```bash
+pactl set-default-sink <device-name>
+```
+
+## aswitch (in /bin)
+```bash
+sudo nano /bin/aswitch
+```
+
+```bash
+#!/bin/bash
+
+current_sink=$(pactl info | grep 'Default Sink' | awk '{print $3}')
+
+if [ "$current_sink" == "alsa_output.usb-Samson_Technologies_Samson_G-Track_Pro_4DF238142D143B00-00.analog-stereo" ]; then
+    new_sink="alsa_output.pci-0000_00_1f.3.analog-stereo"
+else
+    new_sink="alsa_output.usb-Samson_Technologies_Samson_G-Track_Pro_4DF238142D143B00-00.analog-stereo"
+fi
+
+pactl set-default-sink "$new_sink"
+
+echo "Audio cambiado a $new_sink"
+```
+
+```bash
+sudo chmod +x /bin/aswitch
+```
+
+## aswitch as shortcut (win + s)
+
+```bash
+nano .config/openbox/rc.xml
+```
+
+```bash
+<keybind key="W-s">
+    <action name="Execute">
+        <command>aswitch</command>
+    </action>
+</keybind>
+```
