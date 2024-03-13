@@ -409,3 +409,16 @@ nano .config/openbox/rc.xml
     </action>
 </keybind>
 ```
+
+# Octopi
+
+## Install
+```bash
+yay -S octopi octopi-notifier-qt5
+```
+
+## Add it in autostart
+```bash
+nano .config/openbox/autostart
+/usr/bin/octopi-notifier &
+```
