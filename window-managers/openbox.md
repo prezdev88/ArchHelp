@@ -441,3 +441,15 @@ yay -S octopi octopi-notifier-qt5
 nano .config/openbox/autostart
 /usr/bin/octopi-notifier &
 ```
+
+# xclip (put data in clipboard)
+
+## Install
+```bash
+sudo pacman -S xclip
+```
+
+## Put data in clipboard
+```bash
+printf "text" | xclip -selection clipboard
+```
