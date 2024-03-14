@@ -392,6 +392,25 @@ notify-send "Audio" "$new_sink"
 echo "Audio cambiado a $new_sink"
 ```
 
+## aswitch (pulseaudio)
+```bash
+#!/bin/bash
+
+current_sink=$(pacmd list-sinks | grep -A1 '* index' | grep -oP '<\K[^ >]+')
+
+if [ "$current_sink" == "alsa_output.usb-Samson_Technologies_Samson_G-Track_Pro_4DF238142D143B00-00.analog-stereo" ]; then
+    new_sink="alsa_output.pci-0000_00_1f.3.analog-stereo"
+else
+    new_sink="alsa_output.usb-Samson_Technologies_Samson_G-Track_Pro_4DF238142D143B00-00.analog-stereo"
+fi
+
+pacmd set-default-sink "$new_sink"
+
+notify-send "Audio" "$new_sink"
+
+echo "Audio cambiado a $new_sink"
+```
+
 ```bash
 sudo chmod +x /bin/aswitch
 ```
