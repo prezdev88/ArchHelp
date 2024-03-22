@@ -17,4 +17,10 @@ pacman-key --refresh-keys
 # Wine audio error
 ```bash
 yay -S lib32-mpg123 lib32-libpulse lib32-alsa-plugins
+``` 
+
+# Error firma gpg
+```bash
+rm -Rf /etc/pacman.d/gnupg
+pacman-key --init
 ```
