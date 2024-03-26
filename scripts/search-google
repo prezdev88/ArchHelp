@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Apps requeridas:
+#   - chromium
+#   - dmenu
+
+# Función para realizar la búsqueda en Google
+search_google() {
+    query=$(echo "" | dmenu -p "Buscar en Google: ")
+    if [ -n "$query" ]; then
+        query=$(echo "$query" | sed 's/ /+/g')
+        url="https://www.google.com/search?q=$query"
+        chromium "$url"
+    fi
+}
+
+# Llama a la función para iniciar la búsqueda
+search_google

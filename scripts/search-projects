@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Apps requeridas:
+#   - rofi
+#   - dmenu
+
+# Define the paths
+path1="/home/prezdev/awto/microservices/bitbucket/"
+path2="/home/prezdev/awto/microservices/github/"
+path3="/home/prezdev/awto/microservices/_vortex-core/github/"
+
+# Execute find for each path and store the output in separate variables
+projects_path1=$(find "$path1" -maxdepth 1 -mindepth 1 -type d -printf '%p\n')
+projects_path2=$(find "$path2" -maxdepth 1 -mindepth 1 -type d -printf '%p\n')
+projects_path3=$(find "$path3" -maxdepth 1 -mindepth 1 -type d -printf '%p\n')
+
+# Concatenate the outputs of the three finds
+projects=$(printf "%s\n%s\n%s\n" "$projects_path1" "$projects_path2" "$projects_path3")
+
+# Pass the concatenated projects to rofi
+echo "$projects" | rofi -dmenu -p "Open project" -lines 10 -width 1000 | xargs -I {} idea-ce {}
