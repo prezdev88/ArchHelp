@@ -1,0 +1,28 @@
+en .config
+git clone https://github.com/tobi-wan-kenobi/bumblebee-status
+
+yay -S ttf-font-awesome
+
+bar {
+        i3bar_command i3bar --transparency
+        # status_command i3status
+
+        # https://github.com/tobi-wan-kenobi/bumblebee-status
+        status_command ~/.config/bumblebee-status/bumblebee-status \
+        -t nord-powerline \
+        -m kernel memory aur-update arch-update date time # battery-upower
+        # position top
+        # output DP-4
+        tray_output primary
+        colors {
+                background #00000000
+                statusline #ffffff
+                separator #666666
+
+                focused_workspace #4c7899 #285577 #ffffff
+                active_workspace #333333 #5f676a #ffffff
+                inactive_workspace #333333 #222222 #888888
+                urgent_workspace #2f343a #900000 #ffffff
+                binding_mode #2f343a #900000 #ffffff
+        }
+}
