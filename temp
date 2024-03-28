@@ -26,3 +26,10 @@ bar {
                 binding_mode #2f343a #900000 #ffffff
         }
 }
+
+
+# neofetch en fish
+~/.config/fish/config.fish
+
+# temas neofetch
+https://github.com/Chick2D/neofetch-themes?tab=readme-ov-file
