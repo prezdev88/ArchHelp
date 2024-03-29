@@ -2,6 +2,7 @@ en .config
 git clone https://github.com/tobi-wan-kenobi/bumblebee-status
 
 yay -S ttf-hack-nerd
+yay -S nerd-fonts
 
 bar {
 	i3bar_command i3bar --transparency
