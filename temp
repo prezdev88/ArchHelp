@@ -4,27 +4,32 @@ git clone https://github.com/tobi-wan-kenobi/bumblebee-status
 yay -S ttf-hack-nerd
 
 bar {
-        i3bar_command i3bar --transparency
-        # status_command i3status
+	i3bar_command i3bar --transparency
+	# status_command i3status
 
-        # https://github.com/tobi-wan-kenobi/bumblebee-status
-        status_command ~/.config/bumblebee-status/bumblebee-status \
-        -t nord-powerline \
-        -m kernel memory aur-update arch-update date time # battery-upower
-        # position top
-        # output DP-4
-        tray_output primary
-        colors {
-                background #00000000
-                statusline #ffffff
-                separator #666666
+	# https://github.com/tobi-wan-kenobi/bumblebee-status
+	# https://bumblebee-status.readthedocs.io/en/main/modules.html
+	status_command ~/.config/bumblebee-status/bumblebee-status \
+	-t greyish-powerline \
+	-m weather -p weather.location=talca \
+	-m pomodoro kernel disk \
+	sensors2 -p sensors2.chip='sensors -u' sensors2.showname=true \
+	-m memory aur-update arch-update date -p date.format='%a, %d %b %Y' \
+	-m time -p time.format='%H:%M'
+	# position top
+	output DP-4
+	tray_output primary
+	colors {
+		background #00000000
+		statusline #ffffff
+		separator #666666
 
-                focused_workspace #4c7899 #285577 #ffffff
-                active_workspace #333333 #5f676a #ffffff
-                inactive_workspace #333333 #222222 #888888
-                urgent_workspace #2f343a #900000 #ffffff
-                binding_mode #2f343a #900000 #ffffff
-        }
+		focused_workspace #4c7899 #285577 #ffffff
+		active_workspace #333333 #5f676a #ffffff
+		inactive_workspace #333333 #222222 #888888
+		urgent_workspace #2f343a #900000 #ffffff
+		binding_mode #2f343a #900000 #ffffff
+	}
 }
 
 
