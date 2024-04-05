@@ -42,3 +42,20 @@ https://github.com/Chick2D/neofetch-themes?tab=readme-ov-file
 
 # Arch wallpapers
 https://bbs.archlinux.org/viewtopic.php?id=259604
+
+# Bluetooth
+sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
+sudo systemctl start bluetooth
+sudo systemctl enable bluetooth
+bluetoothctl
+
+power on: Enciende el Bluetooth.
+agent on: Habilita el agente de emparejamiento.
+default-agent: Establece el agente predeterminado.
+scan on: Escanea dispositivos Bluetooth cercanos.
+Una vez que tu dispositivo sea detectado, utiliza el comando pair MAC_address (reemplaza MAC_address por la dirección MAC de tu dispositivo) para emparejarlo.
+Después de emparejarlo, usa trust MAC_address para confiar en el dispositivo.
+Finalmente, usa connect MAC_address para conectar el dispositivo.
+
+# GUI para controlar volumen y dispositivos de audio
+sudo pacman -S pavucontrol
