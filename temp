@@ -126,3 +126,9 @@ echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
 sudo pacman -S brightnessctl
 brightnessctl <num>
 ```
+
+## backlight i3 config
+```bash
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+```
