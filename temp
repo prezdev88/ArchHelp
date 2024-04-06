@@ -116,3 +116,13 @@ notify-send "Audio" "$device_name"
 # Imprime un mensaje en la terminal
 echo "Dispositivo cambiado a: $device_name"
 ```
+
+# ranger
+git clone https://github.com/alexanderjeurissen/ranger_devicons ~/.config/ranger/plugins/ranger_devicons
+echo "default_linemode devicons" >> $HOME/.config/ranger/rc.conf
+
+# backlight (brillo de pantalla de laptops)
+```bash
+sudo pacman -S brightnessctl
+brightnessctl <num>
+```
