@@ -468,6 +468,11 @@ nano .xinitrc
 setxkbmap -layout es
 ```
 
+```bash
+localectl status
+sudo localectl set-x11-keymap es
+```
+
 ## GIT
 
 ```bash
