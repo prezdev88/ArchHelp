@@ -98,27 +98,7 @@ https://github.com/Chick2D/neofetch-themes?tab=readme-ov-file
 nano ~/.config/neofetch/config.conf
 ```
 
-## Bluetooth
-```bash
-sudo pacman -S bluez bluez-utils pulseaudio-bluetooth
-sudo systemctl start bluetooth
-sudo systemctl enable bluetooth
-bluetoothctl
 
-power on: Enciende el Bluetooth.
-agent on: Habilita el agente de emparejamiento.
-default-agent: Establece el agente predeterminado.
-scan on: Escanea dispositivos Bluetooth cercanos.
-
-Una vez que tu dispositivo sea detectado, utiliza el 
-comando pair MAC_address (reemplaza MAC_address por 
-la dirección MAC de tu dispositivo) para emparejarlo.
-Después de emparejarlo, usa trust MAC_address para 
-confiar en el dispositivo.
-Finalmente, usa connect MAC_address para conectar el dispositivo.
-
-connect 38:18:4C:4C:0D:EF
-```
 
 ## Ranger (terminal file explorer)
 ```bash
